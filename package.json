@@ -1,0 +1,28 @@
+{
+  "name": "test-datalouna",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "nodemon -L --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "express": "^4.21.2",
+    "pg": "^8.13.1",
+    "redis": "^4.7.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.1",
+    "@types/pg": "^8.11.11",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.7.3"
+  }
+}
