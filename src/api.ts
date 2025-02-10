@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_HOST = "https://api.skinport.com/v1";
+const API_HOST = process.env.VENDOR_API_HOST;
 
 interface ApiItem {
   market_hash_name: string;

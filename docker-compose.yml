@@ -17,6 +17,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
       - REDIS_HOST=redis
+      - VENDOR_API_HOST=https://api.skinport.com/v1
     command: npm run dev
     depends_on:
       - postgres

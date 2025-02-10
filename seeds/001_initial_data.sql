@@ -1,14 +1,14 @@
-INSERT INTO products (name, type, price) VALUES
-    ('NVIDIA RTX 4090', 'gpu', 1599.99),
-    ('NVIDIA RTX 4080', 'gpu', 1199.99),
-    ('AMD RX 7900 XTX', 'gpu', 999.99),
-    ('Intel Core i9-13900K', 'cpu', 589.99),
-    ('AMD Ryzen 9 7950X', 'cpu', 699.99),
-    ('ASUS ROG STRIX Z790-E', 'motherboard', 499.99),
-    ('MSI MPG B650 CARBON', 'motherboard', 329.99),
-    ('Logitech G Pro X Superlight', 'mouse', 159.99),
-    ('Razer DeathAdder V3 Pro', 'mouse', 149.99),
-    ('SteelSeries Prime', 'mouse', 129.99)
+INSERT INTO products (name, type, amount, price) VALUES
+    ('NVIDIA RTX 4090', 'gpu', 10, 1599.99),
+    ('NVIDIA RTX 4080', 'gpu', 10, 1199.99),
+    ('AMD RX 7900 XTX', 'gpu', 10, 999.99),
+    ('Intel Core i9-13900K', 'cpu', 10, 589.99),
+    ('AMD Ryzen 9 7950X', 'cpu', 10, 699.99),
+    ('ASUS ROG STRIX Z790-E', 'motherboard', 10, 499.99),
+    ('MSI MPG B650 CARBON', 'motherboard', 10, 329.99),
+    ('Logitech G Pro X Superlight', 'mouse', 10, 159.99),
+    ('Razer DeathAdder V3 Pro', 'mouse', 10, 149.99),
+    ('SteelSeries Prime', 'mouse', 10, 129.99)
 ON CONFLICT DO NOTHING;
 
 INSERT INTO users (name, balance) VALUES

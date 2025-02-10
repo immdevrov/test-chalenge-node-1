@@ -2,6 +2,7 @@ import express from "express";
 import { createClient } from "redis";
 import { composeItems } from "./api";
 import { pool, init as databaseInit } from "./database";
+import { makePurchase } from "./domain/purchase";
 
 const app = express();
 const port = 3000;
@@ -49,6 +50,35 @@ app.get("/items", async (req, res) => {
   } catch (error) {
     console.error("Error fetching data from third-party API:", error);
     res.status((error as any).status).json({ error });
+  }
+});
+
+app.get("/purchase", async (req, res) => {
+  const { user_id, product_id, amount } = req.query;
+  if (!user_id || !product_id || !amount) {
+    console.error(
+      "[PURCHASE: missing required params: user_id, item_id, amount]"
+    );
+    res.status(422).json({
+      error: "[PURCHASE: missing required params: user_id, item_id, amount]",
+    });
+  }
+
+  try {
+    await makePurchase(
+      {
+        user_id: Number(user_id),
+        product_id: Number(product_id),
+        amount: Number(amount),
+      },
+      pool
+    );
+
+    res.json({ message: "purchased sucessflully" });
+  } catch (e) {
+    const errorMessage = (e as Error).message;
+    res.status(422).json({ error: errorMessage });
+    console.log(errorMessage);
   }
 });
 
